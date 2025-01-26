@@ -25,3 +25,21 @@ def pregunta_07():
      (9, ['A', 'B', 'E', 'A', 'A', 'C'])]
 
     """
+    with open('files/data.csv', 'r') as f:
+        data = f.readlines()
+
+    count = {}
+    for i in data:
+        value = int(i.split(',')[1])
+        letter = i.split(',')[0]
+        if value in count:
+            count[value].append(letter)
+        else:
+            count[value] = [letter]
+
+    result = []
+    for k, v in count.items():
+        result.append((k, v))
+
+    return sorted(result)
+

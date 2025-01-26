@@ -24,3 +24,19 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+
+    with open('files/data.csv', 'r') as f:
+        data = f.readlines()
+
+    count = {}
+
+    for i in data:
+        key = i.split(',')[4].split(':')[0]
+        if key in count:
+            count[key] += 1
+        else:
+            count[key] = 1
+
+    return count
+
+

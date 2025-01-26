@@ -15,3 +15,19 @@ def pregunta_03():
     [('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
     """
+    with open('files/data.csv', 'r') as f:
+        data = f.readlines()
+
+    count = {}
+
+    for i in data:
+        letter = i.split(',')[0]
+        value = int(i.split(',')[1])
+        if letter in count:
+            count[letter] += value
+        else:
+            count[letter] = value
+    
+    count = sorted(count.items())
+
+    return count

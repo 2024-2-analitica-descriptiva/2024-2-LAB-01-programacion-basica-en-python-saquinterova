@@ -20,3 +20,16 @@ def pregunta_10():
 
 
     """
+    with open('files/data.csv', 'r') as f:
+        data = f.readlines()
+
+    count = []
+    for i in data:
+        letter = i.split(',')[0]
+        value_1 = int(i.split(',')[3])
+        value_2 = int(i.split(',')[4])
+        count.append((letter, value_1, value_2))
+
+    return count
+
+
