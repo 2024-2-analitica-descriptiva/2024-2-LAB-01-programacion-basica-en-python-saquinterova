@@ -16,20 +16,23 @@ def pregunta_11():
 
 
     """
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = {}
 
     for i in data:
-        letter = i.split(',')[3]
-        value = int(i.split(',')[1])
-        if letter in count:
-            count[letter] += value
-        else:
-            count[letter] = value
+        i = i.split()
+        letter = i[3].split(',')
+        for j in letter:
+            value = int(i[1])
+            if j in count:
+                count[j] += value
+            else:
+                count[j] = value
     
     count = dict(sorted(count.items()))
 
     return count
 
+print(pregunta_11())

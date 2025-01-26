@@ -27,13 +27,13 @@ def pregunta_04():
 
     """
 
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = {}
 
     for i in data:
-        month = i.split(',')[2].split('-')[1]
+        month = i.split()[2].split('-')[1]
         if month in count:
             count[month] += 1
         else:
@@ -42,3 +42,5 @@ def pregunta_04():
     count = sorted(count.items())
 
     return count
+
+print(pregunta_04())

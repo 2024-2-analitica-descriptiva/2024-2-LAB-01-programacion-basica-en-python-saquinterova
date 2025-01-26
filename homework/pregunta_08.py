@@ -27,13 +27,14 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = {}
     for i in data:
-        value = int(i.split(',')[1])
-        letter = i.split(',')[0]
+        i = i.split()
+        value = int(i[1])
+        letter = i[0]
         if value in count:
             count[value].append(letter)
         else:
@@ -45,3 +46,4 @@ def pregunta_08():
 
     return sorted(result)
 
+print(pregunta_08())

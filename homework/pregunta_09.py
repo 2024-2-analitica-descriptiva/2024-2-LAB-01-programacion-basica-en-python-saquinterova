@@ -25,18 +25,22 @@ def pregunta_09():
 
     """
 
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = {}
 
     for i in data:
-        key = i.split(',')[4].split(':')[0]
-        if key in count:
-            count[key] += 1
-        else:
-            count[key] = 1
+        i = i.split()
+        i = i[4].split(',')
+        for j in i:
+            key = j.split(':')[0]
+            if key in count:
+                count[key] += 1
+            else:
+                count[key] = 1
 
     return count
 
 
+print(pregunta_09())

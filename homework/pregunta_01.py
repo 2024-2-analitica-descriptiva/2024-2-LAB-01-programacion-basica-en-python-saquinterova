@@ -14,12 +14,13 @@ def pregunta_01():
     214
 
     """
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = 0
     for i in data:
-        count += int(i.split(',')[1])
-    
-    
+        count += int(i.split()[1])
+
     return count
+
+print(pregunta_01())

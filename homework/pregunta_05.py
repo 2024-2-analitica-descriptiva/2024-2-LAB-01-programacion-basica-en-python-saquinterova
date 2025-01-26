@@ -15,13 +15,13 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = {}
     for i in data:
-        letter = i.split(',')[0]
-        value = int(i.split(',')[1])
+        letter = i.split()[0]
+        value = int(i.split()[1])
         if letter in count:
             count[letter].append(value)
         else:
@@ -32,3 +32,5 @@ def pregunta_05():
         result.append((k, max(v), min(v)))
 
     return sorted(result)
+
+print(pregunta_05())

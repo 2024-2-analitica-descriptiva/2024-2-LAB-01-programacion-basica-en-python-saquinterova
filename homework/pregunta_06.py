@@ -26,22 +26,27 @@ def pregunta_06():
      ('jjj', 5, 17)]
 
     """
-    with open('files/data.csv', 'r') as f:
+    with open('files/input/data.csv', 'r') as f:
         data = f.readlines()
 
     count = {}
 
     for i in data:
-        key = i.split(',')[4].split(':')[0]
-        value = int(i.split(',')[4].split(':')[1])
-        if key in count:
-            count[key].append(value)
-        else:
-            count[key] = [value]
+        i = i.split()[4].split(',')
+        for x in i:
+            x = x.split(':')
+            key = x[0]
+            value = x[1]
+            if key in count:
+                count[key].append(int(value))
+            else:
+                count[key] = [int(value)]
 
     result = []
 
     for k, v in count.items():
-        result.append(k, min(v), max(v))
+        result.append((k, min(v), max(v)))
 
     return sorted(result)
+
+print(pregunta_06())
